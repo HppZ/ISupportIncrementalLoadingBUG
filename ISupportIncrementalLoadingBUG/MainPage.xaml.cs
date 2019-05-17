@@ -26,6 +26,8 @@ namespace ISupportIncrementalLoadingBUG
     /// </summary>
     public sealed partial class MainPage : Page, IIncrementalSource<string>
     {
+        private ItemsWrapGrid _itemsWrapGrid;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -46,6 +48,22 @@ namespace ISupportIncrementalLoadingBUG
                 list.Add(i.ToString());
             }
             return await Task.FromResult(list);
+        }
+
+        private void ItemsWrapGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_itemsWrapGrid == null)
+            {
+                _itemsWrapGrid = sender as ItemsWrapGrid;
+            }
+        }
+
+        private void Root_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (_itemsWrapGrid != null)
+            {
+                Debug.WriteLine($"ListViewItem count {_itemsWrapGrid.Children.Count}");
+            }
         }
     }
 

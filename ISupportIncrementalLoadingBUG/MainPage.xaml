@@ -8,29 +8,31 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ListView x:Name="ListViewElement">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ListView ItemsSource="{Binding}" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollMode="Enabled">
-                    <ListView.Header>
-                        <ListViewItem>
-                            <TextBlock>123</TextBlock>
-                        </ListViewItem>
-                    </ListView.Header>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="100" Background="Aquamarine">
-                                <TextBlock Text="{Binding}"></TextBlock>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <ItemsWrapGrid MaximumRowsOrColumns="2" Orientation="Vertical"></ItemsWrapGrid>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                </ListView>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <Grid Background="Transparent" Tapped="Root_Tapped">
+        <ListView x:Name="ListViewElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ListView ItemsSource="{Binding}" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollMode="Enabled">
+                        <ListView.Header>
+                            <ListViewItem>
+                                <TextBlock>123</TextBlock>
+                            </ListViewItem>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="100" Background="Aquamarine">
+                                    <TextBlock Text="{Binding}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid MaximumRowsOrColumns="2" Orientation="Vertical" Loaded="ItemsWrapGrid_Loaded"></ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </Page>
