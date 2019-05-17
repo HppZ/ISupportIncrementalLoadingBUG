@@ -13,11 +13,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ListView ItemsSource="{Binding}" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollMode="Enabled">
-                        <ListView.Header>
-                            <ListViewItem>
-                                <TextBlock>123</TextBlock>
-                            </ListViewItem>
-                        </ListView.Header>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Height="100" Background="Aquamarine">
